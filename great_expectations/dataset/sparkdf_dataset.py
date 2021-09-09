@@ -94,7 +94,7 @@ class MetaSparkDFDataset(Dataset):
             easy optimization opportunities by coupling result_format with how many different transformations
             are done on the dataset, as is done in sqlalchemy_dataset.
             """
-            breakpoint()
+
             # Rename column so we only have to handle dot notation here
             eval_col = "__eval_col_" + column.replace(".", "__").replace("`", "_")
             self.spark_df = self.spark_df.withColumn(eval_col, col(column))
