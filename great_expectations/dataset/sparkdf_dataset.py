@@ -115,7 +115,6 @@ class MetaSparkDFDataset(Dataset):
             col_df = self.spark_df.select(col(eval_col))  # pyspark.sql.DataFrame
 
             # a couple of tests indicate that caching here helps performance
-            col_df.persist()
             element_count = self.get_row_count()
 
             # FIXME temporary fix for missing/ignored value
@@ -201,7 +200,6 @@ class MetaSparkDFDataset(Dataset):
                 except KeyError:
                     pass
 
-            col_df.unpersist()
 
             return return_obj
 
