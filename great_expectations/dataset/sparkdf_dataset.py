@@ -254,6 +254,7 @@ class MetaSparkDFDataset(Dataset):
             )  # pyspark.sql.DataFrame
 
             # a couple of tests indicate that caching here helps performance
+            breakpoint()
             cols_df.persist()
             element_count = self.get_row_count()
 
