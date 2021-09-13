@@ -254,7 +254,7 @@ class MetaSparkDFDataset(Dataset):
             )  # pyspark.sql.DataFrame
 
             # a couple of tests indicate that caching here helps performance
-            cols_df.cache()
+            cols_df.persist()
             element_count = self.get_row_count()
 
             if ignore_row_if == "both_values_are_missing":
